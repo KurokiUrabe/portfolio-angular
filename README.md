@@ -1,3 +1,26 @@
+### `<type>/<name>`
+
+#### `<type>`
+
+```
+bug    - Code changes linked to a known issue.
+feat   - New feature.
+hotfix - Quick fixes to the codebase.
+junk   - Experiments (will never be merged).
+```
+
+#### `<name>`
+
+Always use dashes to seperate words, and keep it short.
+
+#### Examples
+
+```
+feat/renderer-cookies
+hotfix/dockerfile-base-image
+bug/login-ie
+```
+
 # CvAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
