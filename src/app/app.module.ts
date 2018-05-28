@@ -1,20 +1,41 @@
+// eviorement
+import { environment } from "../environments/environment";
+// dependencies
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { ApolloModule } from "apollo-angular";
-import { HttpLinkModule } from "apollo-angular-link-http";
-
+import { FormsModule } from "@angular/forms";
+import { ApolloModule, Apollo } from "apollo-angular";
+import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
+//Modules
 import { AppComponent } from "./app.component";
-@NgModule({})
+import { ProfileComponent } from "./profile/profile.component";
+import { EmployerComponent } from "./employer/employer.component";
+import { EmployerDetailComponent } from "./employer-detail/employer-detail.component";
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ProfileComponent,
+    EmployerComponent,
+    EmployerDetailComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule, // provides HttpClient for HttpLink
     HttpLinkModule,
-    ApolloModule
+    ApolloModule,
+    FormsModule // ngModel
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(apollo: Apollo, httpLink: HttpLink) {
+    apollo.create({
+      link: httpLink.create({ uri: environment.URI }),
+      cache: new InMemoryCache()
+    });
+  }
+}
