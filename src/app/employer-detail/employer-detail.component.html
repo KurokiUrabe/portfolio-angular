@@ -1,0 +1,12 @@
+<div *ngIf="employer">
+
+  <h2>{{ employer.jobTitle }} Details</h2>
+  <div>
+    <span>company: </span>{{employer.company}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="employer.jobTitle" placeholder="name">
+    </label>
+  </div>
+
+</div>
