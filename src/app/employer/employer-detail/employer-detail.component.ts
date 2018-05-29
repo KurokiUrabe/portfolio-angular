@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Employer, Query } from "../types";
+import { Employer, Query } from "../../types";
 
 @Component({
   selector: "app-employer-detail",
