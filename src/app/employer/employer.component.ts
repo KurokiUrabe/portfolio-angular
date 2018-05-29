@@ -1,9 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Apollo } from "apollo-angular";
-import { Observable } from "rxjs/Observable";
-import { map } from "rxjs/operators";
 
-import gql from "graphql-tag";
+import { EmployerService } from "./service/employer.service";
 
 import { Employer, Query } from "../types";
 
@@ -14,28 +11,16 @@ import { Employer, Query } from "../types";
 })
 export class EmployerComponent implements OnInit {
   selectedEmployer: Employer;
-
-  employers: Observable<Employer[]>;
-  constructor(private apollo: Apollo) {}
+  employers: Employer[];
+  constructor(private employerService: EmployerService) {}
 
   ngOnInit() {
-    this.employers = this.apollo
-      .watchQuery<Query>({
-        query: gql`
-          query allEmployers {
-            allEmployers {
-              jobTitle
-              company
-              description
-              period {
-                start
-                end
-              }
-            }
-          }
-        `
-      })
-      .valueChanges.pipe(map(result => result.data.allEmployers));
+    this.getEmployers();
+  }
+  getEmployers(): void {
+    this.employerService.getEmployers().subscribe(employers => {
+      this.employers = employers;
+    });
   }
   onSelect(employer: Employer): void {
     this.selectedEmployer = employer;
