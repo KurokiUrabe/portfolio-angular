@@ -1,8 +1,8 @@
 // eviorement
 import { environment } from "../environments/environment";
 // dependencies
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { ApolloModule, Apollo } from "apollo-angular";
@@ -12,14 +12,16 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { AppComponent } from "./app.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { EmployerComponent } from "./employer/employer.component";
-import { EmployerDetailComponent } from "./employer-detail/employer-detail.component";
+import { EmployerDetailComponent } from "./employer/employer-detail/employer-detail.component";
+import { MessageComponent } from "./employer/message/message.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     EmployerComponent,
-    EmployerDetailComponent
+    EmployerDetailComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
