@@ -1,5 +1,5 @@
-<app-employer-detail [employer]="selectedEmployer"></app-employer-detail>
-<div *ngFor="let employer of employers" [class.selected]="employer === selectedEmployer" (click)="onSelect(employer)">
+<!-- [class.selected]="employer === selectedEmployer" (click)="onSelect(employer)" -->
+<div *ngFor="let employer of employers">
   <div class="card" style="width: 100%; margin-top: 10px">
     <div class="card-body">
       <p class="card-title">
@@ -12,3 +12,12 @@
   </div>
 </div>
 <app-message></app-message>
+<div>
+  <label>Employer name:
+    <input #employerName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(); employerName.value=''">
+    add
+  </button>
+</div>

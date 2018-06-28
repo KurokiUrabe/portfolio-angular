@@ -25,10 +25,13 @@ export type Course = {
   url: string;
 };
 export type Employer = {
+  _id: string;
   jobTitle: string;
   company: string;
   description: string;
+  period: Period;
 };
+
 export type Academic = {
   degree: string;
   name: string;
@@ -54,6 +57,8 @@ export type Proficiency = {
 export type Query = {
   allSkill: Skill[];
   allEmployers: Employer[];
+  getEmployer: Employer;
   getCurriculum: Curriculum;
   allCourses: Course[];
+  updateEmployer: Employer;
 };

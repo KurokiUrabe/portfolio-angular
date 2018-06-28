@@ -1,7 +1,13 @@
 <h1>{{title}}</h1>
 <div id="curriculum">
   <app-profile></app-profile>
-  <app-employer></app-employer>
+  <div class="nav">
+    <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/employer">Employer</a>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
   <div class="skill"></div>
   <div class="certification"></div>
   <div class="proficiency"></div>

@@ -1,12 +1,24 @@
 <div *ngIf="employer">
+  {{employer.jobTitle}}
+  <!-- <input matInput [(ngModel)]="employer.jobTitle" placeholder="Job title"> -->
+  <mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employer.jobTitle" placeholder="Job title">
+  </mat-form-field>
 
-  <h2>{{ employer.jobTitle }} Details</h2>
-  <div>
-    <span>company: </span>{{employer.company}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="employer.jobTitle" placeholder="name">
-    </label>
-  </div>
+  <mat-form-field>
+    <input matInput [(ngModel)]="employer.company " placeholder="Company ">
+  </mat-form-field>
 
+  <mat-form-field>
+    <input matInput [(ngModel)]="employer.description" placeholder="Description">
+  </mat-form-field>
 </div>
+<button (click)="goBack() ">go back</button>
+<button (click)="save() ">save</button>
